@@ -60,23 +60,16 @@ func Authenticate(c *gin.Context) {
 }
 
 func Authorize(c *gin.Context) {
-
 	role, _ := c.Get("userRole")
 	posterRole := role.(string)
 
 	email, _ := c.Get("userEmail")
 	posterEmail := email.(string)
 
-	if posterRole == AppConfig.Role && posterEmail == AppConfig.Email {
-		c.Next()
-
-	} else {
-		DisplayAppError(c.Writer,
-			errors.New("not allowed"),
-			"Not Authorized",
-			401,
-		)
+	if posterRole != AppConfig.Role && posterEmail != AppConfig.Email {
+		c.AbortWithError(401, errors.New("Not Allowed"))
 	}
+	c.Next()
 }
 
 func GenerateJWT(email, role string) (string, error) {

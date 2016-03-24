@@ -1,14 +1,20 @@
 package common
 
 import (
-	"gopkg.in/mgo.v2"
 	"log"
+	"os"
+
+	"gopkg.in/mgo.v2"
 )
 
 var session *mgo.Session
 
 func createDbSession() {
-	session, err := mgo.Dial("localhost")
+	uri := os.Getenv("MONGOLAB_URL")
+	if uri == "" {
+		uri = "localhost"
+	}
+	session, err := mgo.Dial(uri)
 
 	if err != nil {
 		panic(err)

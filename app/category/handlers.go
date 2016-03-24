@@ -9,7 +9,6 @@ import (
 )
 
 func CreateCategory(c *gin.Context) {
-
 	var category Category
 	c.BindJSON(&category)
 	err := validateCategory(&category)
@@ -27,7 +26,6 @@ func CreateCategory(c *gin.Context) {
 }
 
 func GetCategories(c *gin.Context) {
-
 	ds := common.NewSession()
 	defer ds.Close()
 	collection := ds.DB(common.AppConfig.Database).C("categories")
@@ -41,7 +39,6 @@ func GetCategories(c *gin.Context) {
 }
 
 func GetCategoryById(c *gin.Context) {
-
 	ds := common.NewSession()
 	defer ds.Close()
 	collection := ds.DB(common.AppConfig.Database).C("categories")
@@ -56,7 +53,6 @@ func GetCategoryById(c *gin.Context) {
 }
 
 func UpdateCategory(c *gin.Context) {
-
 	id := c.Param("id")
 	ds := common.NewSession()
 	defer ds.Close()
@@ -78,7 +74,6 @@ func UpdateCategory(c *gin.Context) {
 }
 
 func DeleteCategory(c *gin.Context) {
-
 	id := c.Param("id")
 	ds := common.NewSession()
 	defer ds.Close()

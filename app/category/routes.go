@@ -6,7 +6,9 @@ import (
 )
 
 func SetCategoryRoutes(a gin.IRouter) {
-	categoryRoutes := a.Group("/category", common.Authenticate, common.Authorize)
+	categoryRoutes := a.Group("/category")
+	categoryRoutes.Use(common.Authenticate)
+	categoryRoutes.Use(common.Authorize)
 	categoryRoutes.POST("/", CreateCategory)
 	categoryRoutes.PUT("/:id", UpdateCategory)
 	categoryRoutes.DELETE("/:id", DeleteCategory)
