@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/egaleme/cors"
 	"github.com/egaleme/jobsgonic/app/common"
+	"github.com/egaleme/jobsgonic/app/cors"
 	"github.com/egaleme/jobsgonic/app/router"
 	"github.com/gin-gonic/gin"
 )
