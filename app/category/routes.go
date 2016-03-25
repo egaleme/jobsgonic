@@ -5,7 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetCategoryRoutes(a gin.IRouter) {
+func SetCategoryRoutes(a *gin.Engine) {
 	categoryRoutes := a.Group("/category")
 	categoryRoutes.Use(common.Authenticate)
 	categoryRoutes.Use(common.Authorize)

@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func InitRoutes(a gin.IRouter) {
+func InitRoutes(a *gin.Engine) {
 
 	a.GET("/api/jobs/", job.GetJobs)
 	a.GET("/api/jobs/:id", job.GetJobById)

@@ -5,7 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetJobRoutes(a gin.IRouter) {
+func SetJobRoutes(a *gin.Engine) {
 	jobRoutes := a.Group("/jobs", common.Authenticate)
 	jobRoutes.POST("/", CreateJob)
 	jobRoutes.PUT("/:id", UpdateJob)
