@@ -14,7 +14,6 @@ func main() {
 	if port == "" {
 		port = "80"
 	}
-
 	gin.SetMode(gin.ReleaseMode)
 	common.Startup()
 	app := gin.Default()
