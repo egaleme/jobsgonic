@@ -1,1 +1,1 @@
-A job posting single page app built using ReactJs in the frontend and Golang(gin) in the backend with a MongoDB database storage.
+A job posting backend Restful API built with Golang using Gin-Gonic framework with a MongoDB database storage.
