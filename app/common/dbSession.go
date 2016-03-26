@@ -10,10 +10,7 @@ import (
 var session *mgo.Session
 
 func createDbSession() {
-	uri := os.Getenv("MONGOLAB_URL")
-	if uri == "" {
-		uri = "localhost"
-	}
+	uri := "mongodb://egaleme:200owina07@ds021299.mlab.com:21299/jobeet"
 	session, err := mgo.Dial(uri)
 
 	if err != nil {
